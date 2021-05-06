@@ -3,12 +3,11 @@ const admin = require('firebase-admin')
 
 exports.getAffirmations = (req, res) =>{
   const db = connectFirestore()
-  db.collection('affirmations').get()
+  db.collection('affirmations')
+  .get()
   .then(collection => {
-    const affirmationList = collection.docs.map(doc => {
-      return doc.data()
-    })
-    res.send(affirmationList)
+    const affirmationList = collection.docs.map(doc => doc.data())
+      res.send(affirmationList)
   })
   .catch(err => res.status(500).send('Error getting affirmations'))
 }
