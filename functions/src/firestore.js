@@ -6,6 +6,6 @@ exports.connectFirestore = () => {
 		admin.initializeApp({
 			credential: admin.credential.cert(serviceAccount),
 		})
-		return admin.firestore()
 	}
+  return admin.firestore()
 }
